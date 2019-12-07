@@ -55,6 +55,30 @@ class SharedRidesController < ApplicationController
     end
   end
 
+  def destroy_row_from_user
+    @shared_ride = SharedRide.find(params.fetch("id_to_remove"))
+
+    @shared_ride.destroy
+
+    redirect_to("/users/#{@shared_ride.user_id}", notice: "SharedRide deleted successfully.")
+  end
+
+  def destroy_row_from_preferred_trip
+    @shared_ride = SharedRide.find(params.fetch("id_to_remove"))
+
+    @shared_ride.destroy
+
+    redirect_to("/preferred_trips/#{@shared_ride.preferred_trip_id}", notice: "SharedRide deleted successfully.")
+  end
+
+  def destroy_row_from_carpool_group
+    @shared_ride = SharedRide.find(params.fetch("id_to_remove"))
+
+    @shared_ride.destroy
+
+    redirect_to("/carpool_groups/#{@shared_ride.carpool_group_id}", notice: "SharedRide deleted successfully.")
+  end
+
   def destroy_row
     @shared_ride = SharedRide.find(params.fetch("id_to_remove"))
 

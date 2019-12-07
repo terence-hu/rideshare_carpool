@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Shared Rides
+
+    <a data-toggle="collapse" href="#user_shared_rides_new_form">
+      Add shared ride
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.shared_rides.each do |shared_ride| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/shared_rides/<%= shared_ride.id %>">
+          <%= shared_ride.user_id %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

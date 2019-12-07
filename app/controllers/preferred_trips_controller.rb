@@ -65,6 +65,14 @@ class PreferredTripsController < ApplicationController
     end
   end
 
+  def destroy_row_from_user
+    @preferred_trip = PreferredTrip.find(params.fetch("id_to_remove"))
+
+    @preferred_trip.destroy
+
+    redirect_to("/users/#{@preferred_trip.user_id}", notice: "PreferredTrip deleted successfully.")
+  end
+
   def destroy_row
     @preferred_trip = PreferredTrip.find(params.fetch("id_to_remove"))
 

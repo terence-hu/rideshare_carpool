@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_shared_ride/:id_to_remove", { :controller => "shared_rides", :action => "destroy_row" })
+  get("/delete_shared_ride_from_carpool_group/:id_to_remove", { :controller => "shared_rides", :action => "destroy_row_from_carpool_group" })
+  get("/delete_shared_ride_from_preferred_trip/:id_to_remove", { :controller => "shared_rides", :action => "destroy_row_from_preferred_trip" })
+  get("/delete_shared_ride_from_user/:id_to_remove", { :controller => "shared_rides", :action => "destroy_row_from_user" })
 
   #------------------------------
 
@@ -56,6 +59,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_preferred_trip/:id_to_remove", { :controller => "preferred_trips", :action => "destroy_row" })
+  get("/delete_preferred_trip_from_user/:id_to_remove", { :controller => "preferred_trips", :action => "destroy_row_from_user" })
 
   #------------------------------
 

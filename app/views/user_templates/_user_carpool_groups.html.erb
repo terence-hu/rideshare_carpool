@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Carpool Groups
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.carpool_groups.each do |carpool_group| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/carpool_groups/<%= carpool_group.id %>">
+          <%= carpool_group.created_at %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>
