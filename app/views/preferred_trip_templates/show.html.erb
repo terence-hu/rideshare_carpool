@@ -13,17 +13,21 @@
 
       <!-- Edit link preferred_trip start -->
       <div class="col">
-        <a href="/preferred_trips/<%= @preferred_trip.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit preferred trip
-        </a>
+        <% if current_user == @preferred_trip.user %>
+          <a href="/preferred_trips/<%= @preferred_trip.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
+            Edit preferred_trip
+          </a>
+        <% end %>
       </div>
       <!-- Edit link preferred_trip end -->
 
       <!-- Delete link preferred_trip start -->
       <div class="col">
-        <a href="/delete_preferred_trip/<%= @preferred_trip.id %>" class="btn btn-block btn-outline-secondary">
-          Delete preferred trip
-        </a>
+        <% if current_user == @preferred_trip.user %>
+          <a href="/delete_preferred_trip/<%= @preferred_trip.id %>" class="btn btn-block btn-sm btn-outline-secondary">
+            Delete preferred_trip
+          </a>
+        <% end %>
       </div>
       <!-- Delete link preferred_trip end -->
     </div>
