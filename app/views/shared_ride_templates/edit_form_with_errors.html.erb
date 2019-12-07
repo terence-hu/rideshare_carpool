@@ -48,7 +48,7 @@
     </label>
 
     <!-- Input for carpool_group_id start -->
-    <input type="text" id="carpool_group_id" name="carpool_group_id" class="form-control" value="<%= @shared_ride.carpool_group_id %>">
+    <%= select_tag(:carpool_group_id, options_from_collection_for_select(CarpoolGroup.all, :id, :created_at, @shared_ride.carpool_group_id), :class => "form-control") %>
     <!-- Input for carpool_group_id end -->
   </div>
   <!-- Label and input for carpool_group_id end -->
