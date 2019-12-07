@@ -11,6 +11,16 @@ class PreferredTripsController < ApplicationController
 
   def index
     @preferred_trips = PreferredTrip.all
+    @location_hash = Gmaps4rails.build_markers(@preferred_trips.where.not(:destination_latitude => nil)) do |preferred_trip, marker|
+      marker.lat preferred_trip.destination_latitude
+      marker.lng preferred_trip.destination_longitude
+      marker.infowindow "<h5><a href='/preferred_trips/#{preferred_trip.id}'>#{preferred_trip.created_at}</a></h5><small>#{preferred_trip.destination_formatted_address}</small>"
+    end
+    @location_hash = Gmaps4rails.build_markers(@preferred_trips.where.not(:origin_latitude => nil)) do |preferred_trip, marker|
+      marker.lat preferred_trip.origin_latitude
+      marker.lng preferred_trip.origin_longitude
+      marker.infowindow "<h5><a href='/preferred_trips/#{preferred_trip.id}'>#{preferred_trip.created_at}</a></h5><small>#{preferred_trip.origin_formatted_address}</small>"
+    end
 
     render("preferred_trip_templates/index.html.erb")
   end
