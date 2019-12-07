@@ -96,7 +96,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @preferred_trip.user_id %>
+        <% if @preferred_trip.user.present? %>
+          <a href="/users/<%= @preferred_trip.user_id %>">
+            <%= @preferred_trip.user.email %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 

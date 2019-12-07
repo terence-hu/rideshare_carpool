@@ -38,7 +38,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @shared_ride.user_id %>
+        <% if @shared_ride.user.present? %>
+          <a href="/users/<%= @shared_ride.user_id %>">
+            <%= @shared_ride.user.email %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 
@@ -47,7 +51,11 @@
       </dt>
       <!-- Display preferred_trip_id start -->
       <dd>
-        <%= @shared_ride.preferred_trip_id %>
+        <% if @shared_ride.preferred_trip.present? %>
+          <a href="/preferred_trips/<%= @shared_ride.preferred_trip_id %>">
+            <%= @shared_ride.preferred_trip.created_at %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display preferred_trip_id end -->
 
@@ -56,7 +64,11 @@
       </dt>
       <!-- Display carpool_group_id start -->
       <dd>
-        <%= @shared_ride.carpool_group_id %>
+        <% if @shared_ride.carpool_group.present? %>
+          <a href="/carpool_groups/<%= @shared_ride.carpool_group_id %>">
+            <%= @shared_ride.carpool_group.created_at %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display carpool_group_id end -->
 

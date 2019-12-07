@@ -62,19 +62,31 @@
 
         <!-- Display shared_ride.user_id start -->
         <td>
-          <%= shared_ride.user.email %>
+          <% if shared_ride.user.present? %>
+            <a href="/users/<%= shared_ride.user.id %>">
+              <%= shared_ride.user.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display shared_ride.user_id end -->
 
         <!-- Display shared_ride.preferred_trip_id start -->
         <td>
-          <%= shared_ride.preferred_trip.created_at %>
+          <% if shared_ride.preferred_trip.present? %>
+            <a href="/preferred_trips/<%= shared_ride.preferred_trip.id %>">
+              <%= shared_ride.preferred_trip.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display shared_ride.preferred_trip_id end -->
 
         <!-- Display shared_ride.carpool_group_id start -->
         <td>
-          <%= shared_ride.carpool_group.created_at %>
+          <% if shared_ride.carpool_group.present? %>
+            <a href="/carpool_groups/<%= shared_ride.carpool_group.id %>">
+              <%= shared_ride.carpool_group.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display shared_ride.carpool_group_id end -->
 

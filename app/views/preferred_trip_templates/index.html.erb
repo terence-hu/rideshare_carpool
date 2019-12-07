@@ -122,7 +122,11 @@
 
         <!-- Display preferred_trip.user_id start -->
         <td>
-          <%= preferred_trip.user.email %>
+          <% if preferred_trip.user.present? %>
+            <a href="/users/<%= preferred_trip.user.id %>">
+              <%= preferred_trip.user.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display preferred_trip.user_id end -->
 
