@@ -33,6 +33,38 @@ class SharedRidesController < ApplicationController
     end
   end
 
+  def create_row_from_preferred_trip
+    @shared_ride = SharedRide.new
+
+    @shared_ride.user_id = params.fetch("user_id")
+    @shared_ride.preferred_trip_id = params.fetch("preferred_trip_id")
+    @shared_ride.carpool_group_id = params.fetch("carpool_group_id")
+
+    if @shared_ride.valid?
+      @shared_ride.save
+
+      redirect_to("/preferred_trips/#{@shared_ride.preferred_trip_id}", notice: "SharedRide created successfully.")
+    else
+      render("shared_ride_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_carpool_group
+    @shared_ride = SharedRide.new
+
+    @shared_ride.user_id = params.fetch("user_id")
+    @shared_ride.preferred_trip_id = params.fetch("preferred_trip_id")
+    @shared_ride.carpool_group_id = params.fetch("carpool_group_id")
+
+    if @shared_ride.valid?
+      @shared_ride.save
+
+      redirect_to("/carpool_groups/#{@shared_ride.carpool_group_id}", notice: "SharedRide created successfully.")
+    else
+      render("shared_ride_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @shared_ride = SharedRide.find(params.fetch("prefill_with_id"))
 

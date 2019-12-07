@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # CREATE
   get("/shared_rides/new", { :controller => "shared_rides", :action => "new_form" })
   post("/create_shared_ride", { :controller => "shared_rides", :action => "create_row" })
+  post("/create_shared_ride_from_carpool_group", { :controller => "shared_rides", :action => "create_row_from_carpool_group" })
+  post("/create_shared_ride_from_preferred_trip", { :controller => "shared_rides", :action => "create_row_from_preferred_trip" })
 
   # READ
   get("/shared_rides", { :controller => "shared_rides", :action => "index" })

@@ -6,6 +6,7 @@ class PreferredTripsController < ApplicationController
   end
 
   def show
+    @shared_ride = SharedRide.new
     @preferred_trip = PreferredTrip.find(params.fetch("id_to_display"))
 
     render("preferred_trip_templates/show.html.erb")

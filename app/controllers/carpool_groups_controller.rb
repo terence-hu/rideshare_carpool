@@ -6,6 +6,7 @@ class CarpoolGroupsController < ApplicationController
   end
 
   def show
+    @shared_ride = SharedRide.new
     @carpool_group = CarpoolGroup.find(params.fetch("id_to_display"))
 
     render("carpool_group_templates/show.html.erb")

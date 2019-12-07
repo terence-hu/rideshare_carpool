@@ -1,0 +1,37 @@
+<!-- Form shared_ride start -->
+<form action="/create_shared_ride_from_preferred_trip" method="post">
+<!-- Form shared_ride end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @shared_ride.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for preferred_trip_id start -->
+  <!-- Input for preferred_trip_id start -->
+  <input type="hidden" name="preferred_trip_id" value="<%= @preferred_trip.id %>">
+  <!-- Input for preferred_trip_id end -->
+
+  <!-- Label and input for carpool_group_id start -->
+  <div class="form-group">
+    <label for="carpool_group_id">
+      Carpool group
+    </label>
+
+    <!-- Input for carpool_group_id start -->
+    <input type="text" id="carpool_group_id" name="carpool_group_id" class="form-control" value="<%= @shared_ride.carpool_group_id %>">
+    <!-- Input for carpool_group_id end -->
+  </div>
+  <!-- Label and input for carpool_group_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create shared ride
+  </button>
+</form>
