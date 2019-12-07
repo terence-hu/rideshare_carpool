@@ -1,4 +1,6 @@
 ActiveAdmin.register PreferredTrip do
+
+ permit_params :origin, :destination, :earliest_departure_time, :latest_departure_time, :date, :max_radius, :user_id, :join
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
