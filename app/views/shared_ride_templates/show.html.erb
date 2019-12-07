@@ -1,0 +1,82 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Shared ride #<%= @shared_ride.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/shared_rides" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link shared_ride start -->
+      <div class="col">
+        <a href="/shared_rides/<%= @shared_ride.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit shared ride
+        </a>
+      </div>
+      <!-- Edit link shared_ride end -->
+
+      <!-- Delete link shared_ride start -->
+      <div class="col">
+        <a href="/delete_shared_ride/<%= @shared_ride.id %>" class="btn btn-block btn-outline-secondary">
+          Delete shared ride
+        </a>
+      </div>
+      <!-- Delete link shared_ride end -->
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <!-- Display user_id start -->
+      <dd>
+        <%= @shared_ride.user_id %>
+      </dd>
+      <!-- Display user_id end -->
+
+      <dt>
+        Preferred trip
+      </dt>
+      <!-- Display preferred_trip_id start -->
+      <dd>
+        <%= @shared_ride.preferred_trip_id %>
+      </dd>
+      <!-- Display preferred_trip_id end -->
+
+      <dt>
+        Carpool group
+      </dt>
+      <!-- Display carpool_group_id start -->
+      <dd>
+        <%= @shared_ride.carpool_group_id %>
+      </dd>
+      <!-- Display carpool_group_id end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@shared_ride.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@shared_ride.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->

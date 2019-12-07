@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Shared ride resource:
+
+  # CREATE
+  get("/shared_rides/new", { :controller => "shared_rides", :action => "new_form" })
+  post("/create_shared_ride", { :controller => "shared_rides", :action => "create_row" })
+
+  # READ
+  get("/shared_rides", { :controller => "shared_rides", :action => "index" })
+  get("/shared_rides/:id_to_display", { :controller => "shared_rides", :action => "show" })
+
+  # UPDATE
+  get("/shared_rides/:prefill_with_id/edit", { :controller => "shared_rides", :action => "edit_form" })
+  post("/update_shared_ride/:id_to_modify", { :controller => "shared_rides", :action => "update_row" })
+
+  # DELETE
+  get("/delete_shared_ride/:id_to_remove", { :controller => "shared_rides", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Carpool group resource:
 
   # CREATE
