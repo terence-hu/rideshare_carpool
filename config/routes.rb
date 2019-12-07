@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "preferred_trips#index"
   # Routes for the Shared ride resource:
 
   # CREATE
