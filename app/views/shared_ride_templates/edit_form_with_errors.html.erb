@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @shared_ride.errors.any? %>
   <% @shared_ride.errors.full_messages.each do |message| %>
     <div class="alert">
@@ -13,36 +12,24 @@
 
 <hr>
 
-<!-- Form shared_ride start -->
 <form action="/update_shared_ride/<%= @shared_ride.id %>" method="post">
-<!-- Form shared_ride end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for preferred_trip_id start -->
   <div class="form-group">
     <label for="preferred_trip_id">
       Preferred trip
     </label>
 
-    <!-- Input for preferred_trip_id start -->
     <%= select_tag(:preferred_trip_id, options_from_collection_for_select(PreferredTrip.all, :id, :created_at, @shared_ride.preferred_trip_id), :class => "form-control") %>
-    <!-- Input for preferred_trip_id end -->
   </div>
-  <!-- Label and input for preferred_trip_id end -->
 
-  <!-- Label and input for carpool_group_id start -->
   <div class="form-group">
     <label for="carpool_group_id">
       Carpool group
     </label>
 
-    <!-- Input for carpool_group_id start -->
     <%= select_tag(:carpool_group_id, options_from_collection_for_select(CarpoolGroup.all, :id, :created_at, @shared_ride.carpool_group_id), :class => "form-control") %>
-    <!-- Input for carpool_group_id end -->
   </div>
-  <!-- Label and input for carpool_group_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Update shared ride

@@ -10,11 +10,9 @@
   <ul class="list-group list-group-flush">
     <% @user.preferred_trips.each do |preferred_trip| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/preferred_trips/<%= preferred_trip.id %>">
           <%= preferred_trip.created_at %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

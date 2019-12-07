@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @preferred_trip.present? %>
   <% if @preferred_trip.errors.any? %>
     <% @preferred_trip.errors.full_messages.each do |message| %>
@@ -16,94 +15,61 @@
 
 <hr>
 
-<!-- Form preferred_trip start -->
 <form action="/create_preferred_trip" method="post">
-<!-- Form preferred_trip end -->
 
-  <!-- Label and input for origin start -->
   <div class="form-group">
     <label for="origin">
       Origin
     </label>
 
-    <!-- Input for origin start -->
     <input type="text" id="origin" name="origin" class="form-control" value="<%= @preferred_trip.origin %>">
-    <!-- Input for origin end -->
   </div>
-  <!-- Label and input for origin end -->
 
-  <!-- Label and input for destination start -->
   <div class="form-group">
     <label for="destination">
       Destination
     </label>
 
-    <!-- Input for destination start -->
     <input type="text" id="destination" name="destination" class="form-control" value="<%= @preferred_trip.destination %>">
-    <!-- Input for destination end -->
   </div>
-  <!-- Label and input for destination end -->
 
-  <!-- Label and input for earliest_departure_time start -->
   <div class="form-group">
     <label for="earliest_departure_time">
       Earliest departure time
     </label>
 
-    <!-- Input for earliest_departure_time start -->
     <input type="text" id="earliest_departure_time" name="earliest_departure_time" class="form-control" value="<%= @preferred_trip.earliest_departure_time %>">
-    <!-- Input for earliest_departure_time end -->
   </div>
-  <!-- Label and input for earliest_departure_time end -->
 
-  <!-- Label and input for latest_departure_time start -->
   <div class="form-group">
     <label for="latest_departure_time">
       Latest departure time
     </label>
 
-    <!-- Input for latest_departure_time start -->
     <input type="text" id="latest_departure_time" name="latest_departure_time" class="form-control" value="<%= @preferred_trip.latest_departure_time %>">
-    <!-- Input for latest_departure_time end -->
   </div>
-  <!-- Label and input for latest_departure_time end -->
 
-  <!-- Label and input for date start -->
   <div class="form-group">
     <label for="date">
       Date
     </label>
 
-    <!-- Input for date start -->
     <input type="text" id="date" name="date" class="form-control" value="<%= @preferred_trip.date %>">
-    <!-- Input for date end -->
   </div>
-  <!-- Label and input for date end -->
 
-  <!-- Label and input for max_radius start -->
   <div class="form-group">
     <label for="max_radius">
       Max radius
     </label>
 
-    <!-- Input for max_radius start -->
     <input type="text" id="max_radius" name="max_radius" class="form-control" value="<%= @preferred_trip.max_radius %>">
-    <!-- Input for max_radius end -->
   </div>
-  <!-- Label and input for max_radius end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <input type="hidden" name="user_id" value="<%= current_user.id %>">
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for join start -->
   <div class="form-check">
     <input type="hidden" value="0" name="join">
-    <!-- Input for join start -->
     <input id="join" class="form-check-input" name="join" type="checkbox" <%= "checked" if @preferred_trip.join %>>
-    <!-- Input for join end -->
     <label for="join" class="form-check-label">
       Join
     </label>

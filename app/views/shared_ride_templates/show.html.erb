@@ -11,7 +11,6 @@
         </a>
       </div>
 
-      <!-- Edit link shared_ride start -->
       <div class="col">
         <% if current_user == @shared_ride.user %>
           <a href="/shared_rides/<%= @shared_ride.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
@@ -19,9 +18,7 @@
           </a>
         <% end %>
       </div>
-      <!-- Edit link shared_ride end -->
 
-      <!-- Delete link shared_ride start -->
       <div class="col">
         <% if current_user == @shared_ride.user %>
           <a href="/delete_shared_ride/<%= @shared_ride.id %>" class="btn btn-block btn-sm btn-outline-secondary">
@@ -29,14 +26,12 @@
           </a>
         <% end %>
       </div>
-      <!-- Delete link shared_ride end -->
     </div>
 
     <dl>
       <dt>
         User
       </dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @shared_ride.user.present? %>
           <a href="/users/<%= @shared_ride.user_id %>">
@@ -44,12 +39,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>
         Preferred trip
       </dt>
-      <!-- Display preferred_trip_id start -->
       <dd>
         <% if @shared_ride.preferred_trip.present? %>
           <a href="/preferred_trips/<%= @shared_ride.preferred_trip_id %>">
@@ -57,12 +50,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display preferred_trip_id end -->
 
       <dt>
         Carpool group
       </dt>
-      <!-- Display carpool_group_id start -->
       <dd>
         <% if @shared_ride.carpool_group.present? %>
           <a href="/carpool_groups/<%= @shared_ride.carpool_group_id %>">
@@ -70,28 +61,21 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display carpool_group_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@shared_ride.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@shared_ride.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->

@@ -11,7 +11,6 @@
         </a>
       </div>
 
-      <!-- Edit link preferred_trip start -->
       <div class="col">
         <% if current_user == @preferred_trip.user %>
           <a href="/preferred_trips/<%= @preferred_trip.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
@@ -19,9 +18,7 @@
           </a>
         <% end %>
       </div>
-      <!-- Edit link preferred_trip end -->
 
-      <!-- Delete link preferred_trip start -->
       <div class="col">
         <% if current_user == @preferred_trip.user %>
           <a href="/delete_preferred_trip/<%= @preferred_trip.id %>" class="btn btn-block btn-sm btn-outline-secondary">
@@ -29,72 +26,58 @@
           </a>
         <% end %>
       </div>
-      <!-- Delete link preferred_trip end -->
     </div>
 
     <dl>
       <dt>
         Origin
       </dt>
-      <!-- Display origin start -->
       <dd>
         <div>
           <%= render partial: "preferred_trip_templates/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display origin end -->
 
       <dt>
         Destination
       </dt>
-      <!-- Display destination start -->
       <dd>
         <div>
           <%= render partial: "preferred_trip_templates/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display destination end -->
 
       <dt>
         Earliest departure time
       </dt>
-      <!-- Display earliest_departure_time start -->
       <dd>
         <%= @preferred_trip.earliest_departure_time %>
       </dd>
-      <!-- Display earliest_departure_time end -->
 
       <dt>
         Latest departure time
       </dt>
-      <!-- Display latest_departure_time start -->
       <dd>
         <%= @preferred_trip.latest_departure_time %>
       </dd>
-      <!-- Display latest_departure_time end -->
 
       <dt>
         Date
       </dt>
-      <!-- Display date start -->
       <dd>
         <%= @preferred_trip.date %>
       </dd>
-      <!-- Display date end -->
 
       <dt>
         Max radius
       </dt>
-      <!-- Display max_radius start -->
       <dd>
         <%= @preferred_trip.max_radius %>
       </dd>
-      <!-- Display max_radius end -->
 
       <dt>
         User
       </dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @preferred_trip.user.present? %>
           <a href="/users/<%= @preferred_trip.user_id %>">
@@ -102,42 +85,33 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>
         Join
       </dt>
-      <!-- Display join start -->
       <dd>
         <%= @preferred_trip.join %>
       </dd>
-      <!-- Display join end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@preferred_trip.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@preferred_trip.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "preferred_trip_templates/preferred_trip_shared_rides" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

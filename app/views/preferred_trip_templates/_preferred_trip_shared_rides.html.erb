@@ -10,28 +10,22 @@
   <ul class="list-group list-group-flush">
     <% @preferred_trip.shared_rides.each do |shared_ride| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/shared_rides/<%= shared_ride.id %>">
           <%= shared_ride.user_id %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%if current_user == shared_ride.user %>
           <a href="/delete_shared_ride_from_preferred_trip/<%= shared_ride.id %>">
             Delete
           </a>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="preferred_trip_shared_rides_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "preferred_trip_templates/preferred_trip_shared_rides_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

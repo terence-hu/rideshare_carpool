@@ -10,11 +10,9 @@
   <ul class="list-group list-group-flush">
     <% @user.shared_rides.each do |shared_ride| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/shared_rides/<%= shared_ride.id %>">
           <%= shared_ride.user_id %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

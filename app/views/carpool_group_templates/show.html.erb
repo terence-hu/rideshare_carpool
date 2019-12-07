@@ -11,46 +11,37 @@
         </a>
       </div>
 
-      <!-- Edit link carpool_group start -->
       <div class="col">
         <a href="/carpool_groups/<%= @carpool_group.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit carpool group
         </a>
       </div>
-      <!-- Edit link carpool_group end -->
 
-      <!-- Delete link carpool_group start -->
       <div class="col">
         <a href="/delete_carpool_group/<%= @carpool_group.id %>" class="btn btn-block btn-outline-secondary">
           Delete carpool group
         </a>
       </div>
-      <!-- Delete link carpool_group end -->
     </div>
 
     <dl>
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@carpool_group.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@carpool_group.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "carpool_group_templates/carpool_group_shared_rides" %>
@@ -62,4 +53,3 @@
     <%= render partial: "carpool_group_templates/carpool_group_users" %>
   </div>
 </div>
-<!-- Show Page Customization end -->
