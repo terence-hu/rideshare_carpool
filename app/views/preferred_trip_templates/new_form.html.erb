@@ -1,0 +1,116 @@
+<h1>
+  Add a new preferred trip
+</h1>
+
+
+<hr>
+
+<!-- Form preferred_trip start -->
+<form action="/create_preferred_trip" method="post">
+<!-- Form preferred_trip end -->
+
+  <!-- Label and input for origin start -->
+  <div class="form-group">
+    <label for="origin">
+      Origin
+    </label>
+
+    <!-- Input for origin start -->
+    <input type="text" id="origin" name="origin" class="form-control">
+    <!-- Input for origin end -->
+  </div>
+  <!-- Label and input for origin end -->
+
+  <!-- Label and input for destination start -->
+  <div class="form-group">
+    <label for="destination">
+      Destination
+    </label>
+
+    <!-- Input for destination start -->
+    <input type="text" id="destination" name="destination" class="form-control">
+    <!-- Input for destination end -->
+  </div>
+  <!-- Label and input for destination end -->
+
+  <!-- Label and input for earliest_departure_time start -->
+  <div class="form-group">
+    <label for="earliest_departure_time">
+      Earliest departure time
+    </label>
+
+    <!-- Input for earliest_departure_time start -->
+    <input type="text" id="earliest_departure_time" name="earliest_departure_time" class="form-control">
+    <!-- Input for earliest_departure_time end -->
+  </div>
+  <!-- Label and input for earliest_departure_time end -->
+
+  <!-- Label and input for latest_departure_time start -->
+  <div class="form-group">
+    <label for="latest_departure_time">
+      Latest departure time
+    </label>
+
+    <!-- Input for latest_departure_time start -->
+    <input type="text" id="latest_departure_time" name="latest_departure_time" class="form-control">
+    <!-- Input for latest_departure_time end -->
+  </div>
+  <!-- Label and input for latest_departure_time end -->
+
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <label for="date">
+      Date
+    </label>
+
+    <!-- Input for date start -->
+    <input type="text" id="date" name="date" class="form-control">
+    <!-- Input for date end -->
+  </div>
+  <!-- Label and input for date end -->
+
+  <!-- Label and input for max_radius start -->
+  <div class="form-group">
+    <label for="max_radius">
+      Max radius
+    </label>
+
+    <!-- Input for max_radius start -->
+    <input type="text" id="max_radius" name="max_radius" class="form-control">
+    <!-- Input for max_radius end -->
+  </div>
+  <!-- Label and input for max_radius end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for join start -->
+  <div class="form-check">
+    <input type="hidden" value="0" name="join">
+    <!-- Input for join start -->
+    <input id="join" class="form-check-input" name="join" type="checkbox">
+    <!-- Input for join end -->
+    <label for="join" class="form-check-label">
+      Join
+    </label>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create preferred trip
+  </button>
+</form>
+
+<hr>
+
+<a href="/preferred_trips">
+  Go back
+</a>
