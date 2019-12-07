@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :shared_rides,
+             :dependent => :destroy
+
   has_many   :preferred_trips,
              :dependent => :destroy
 
