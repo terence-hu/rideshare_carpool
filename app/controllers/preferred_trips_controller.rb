@@ -54,7 +54,7 @@ class PreferredTripsController < ApplicationController
     @preferred_trip.latest_departure_time = params.fetch("latest_departure_time")
     @preferred_trip.date = params.fetch("date")
     @preferred_trip.max_radius = params.fetch("max_radius")
-    @preferred_trip.user_id = params.fetch("user_id")
+    
     @preferred_trip.join = params.fetch("join")
 
     if @preferred_trip.valid?
