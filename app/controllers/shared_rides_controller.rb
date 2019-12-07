@@ -10,7 +10,7 @@ class SharedRidesController < ApplicationController
   end
 
   def index
-    @shared_rides = SharedRide.all
+    @shared_rides = SharedRide.page(params[:page]).per(10)
 
     render("shared_ride_templates/index.html.erb")
   end

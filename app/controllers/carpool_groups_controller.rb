@@ -1,6 +1,6 @@
 class CarpoolGroupsController < ApplicationController
   def index
-    @carpool_groups = CarpoolGroup.all
+    @carpool_groups = CarpoolGroup.page(params[:page]).per(10)
 
     render("carpool_group_templates/index.html.erb")
   end
