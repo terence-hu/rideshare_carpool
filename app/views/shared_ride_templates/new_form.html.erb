@@ -28,7 +28,7 @@
     </label>
 
     <!-- Input for preferred_trip_id start -->
-    <input type="text" id="preferred_trip_id" name="preferred_trip_id" class="form-control">
+    <%= select_tag(:preferred_trip_id, options_from_collection_for_select(PreferredTrip.all, :id, :created_at, @shared_ride.preferred_trip_id), :class => "form-control") %>
     <!-- Input for preferred_trip_id end -->
   </div>
   <!-- Label and input for preferred_trip_id end -->
