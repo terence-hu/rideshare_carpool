@@ -12,6 +12,8 @@ RSpec.describe User, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:carpool_groups) }
+
     end
 
     describe "Validations" do

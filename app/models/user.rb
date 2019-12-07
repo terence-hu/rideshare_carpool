@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :carpool_groups,
+             :through => :shared_rides,
+             :source => :carpool_group
+
   # Validations
 
   # Include default devise modules. Others available are:

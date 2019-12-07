@@ -6,6 +6,10 @@ class CarpoolGroup < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :shared_rides,
+             :source => :user
+
   # Validations
 
 end
