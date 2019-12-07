@@ -13,17 +13,21 @@
 
       <!-- Edit link shared_ride start -->
       <div class="col">
-        <a href="/shared_rides/<%= @shared_ride.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit shared ride
-        </a>
+        <% if current_user == @shared_ride.user %>
+          <a href="/shared_rides/<%= @shared_ride.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
+            Edit shared_ride
+          </a>
+        <% end %>
       </div>
       <!-- Edit link shared_ride end -->
 
       <!-- Delete link shared_ride start -->
       <div class="col">
-        <a href="/delete_shared_ride/<%= @shared_ride.id %>" class="btn btn-block btn-outline-secondary">
-          Delete shared ride
-        </a>
+        <% if current_user == @shared_ride.user %>
+          <a href="/delete_shared_ride/<%= @shared_ride.id %>" class="btn btn-block btn-sm btn-outline-secondary">
+            Delete shared_ride
+          </a>
+        <% end %>
       </div>
       <!-- Delete link shared_ride end -->
     </div>

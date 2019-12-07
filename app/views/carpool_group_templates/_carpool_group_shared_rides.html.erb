@@ -17,9 +17,11 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <a href="/delete_shared_ride_from_carpool_group/<%= shared_ride.id %>">
-          Delete
-        </a>
+        <%if current_user == shared_ride.user %>
+          <a href="/delete_shared_ride_from_carpool_group/<%= shared_ride.id %>">
+            Delete
+          </a>
+        <% end %>
         <!-- Delete link end -->
 
       </li>
