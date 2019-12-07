@@ -1,4 +1,6 @@
 ActiveAdmin.register SharedRide do
+
+ permit_params :user_id, :preferred_trip_id, :carpool_group_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
