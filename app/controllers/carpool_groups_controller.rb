@@ -1,6 +1,7 @@
 class CarpoolGroupsController < ApplicationController
   def index
-    @carpool_groups = CarpoolGroup.page(params[:page]).per(10)
+    @q = CarpoolGroup.ransack(params[:q])
+    @carpool_groups = @q.result(:distinct => true).includes(:shared_rides, :users).page(params[:page]).per(10)
 
     render("carpool_group_templates/index.html.erb")
   end

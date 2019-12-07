@@ -10,7 +10,8 @@ class SharedRidesController < ApplicationController
   end
 
   def index
-    @shared_rides = SharedRide.page(params[:page]).per(10)
+    @q = SharedRide.ransack(params[:q])
+    @shared_rides = @q.result(:distinct => true).includes(:user, :preferred_trip, :carpool_group).page(params[:page]).per(10)
 
     render("shared_ride_templates/index.html.erb")
   end

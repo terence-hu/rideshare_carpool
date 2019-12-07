@@ -10,7 +10,8 @@ class PreferredTripsController < ApplicationController
   end
 
   def index
-    @preferred_trips = PreferredTrip.page(params[:page]).per(10)
+    @q = PreferredTrip.ransack(params[:q])
+    @preferred_trips = @q.result(:distinct => true).includes(:user, :shared_rides).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@preferred_trips.where.not(:destination_latitude => nil)) do |preferred_trip, marker|
       marker.lat preferred_trip.destination_latitude
       marker.lng preferred_trip.destination_longitude

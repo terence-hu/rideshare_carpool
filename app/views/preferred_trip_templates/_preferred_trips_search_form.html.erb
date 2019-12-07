@@ -1,0 +1,198 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "preferred_trips_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :join_eq, "Join" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :join_eq, "1", checked: ((params[:q] && params[:q][:join_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :join_eq, "0", checked: ((params[:q] && params[:q][:join_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :join_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :max_radius, "Max radius" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :max_radius_gteq, :class => "form-control", :placeholder => "Max radius greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :max_radius_lteq, :class => "form-control", :placeholder => "Max radius less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date, "Date" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='dategteqPicker' data-target-input="nearest">
+          <%= f.text_field :date_gteq, :class => "form-control datetimepicker-input", :placeholder => "Date greater than or equal to", :data => {:target => '#dategteqPicker'} %>
+          <div class="input-group-append" data-target='#dategteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='datelteqPicker' data-target-input="nearest">
+          <%= f.text_field :date_lteq, :class => "form-control datetimepicker-input", :placeholder => "Date less than or equal to", :data => {:target => '#datelteqPicker'} %>
+          <div class="input-group-append" data-target='#datelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#dategteqPicker').datetimepicker({
+              format: 'MM/DD/YYYY'
+          });
+          $('#datelteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'MM/DD/YYYY'
+          });
+          $('#dategteqPicker').on("dp.change", function (e) {
+              $('#datelteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#datelteqPicker').on("dp.change", function (e) {
+              $('#dategteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :latest_departure_time, "Latest departure time" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='latest_departure_timegteqPicker' data-target-input="nearest">
+          <%= f.text_field :latest_departure_time_gteq, :class => "form-control datetimepicker-input", :placeholder => "Latest departure time greater than or equal to", :data => {:target => '#latest_departure_timegteqPicker'} %>
+          <div class="input-group-append" data-target='#latest_departure_timegteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+          </div>
+          <script type="text/javascript">
+            $(function () {
+                $('#latest_departure_timegteqPicker').datetimepicker({
+                  format: 'LT'
+                });
+            });
+          </script>
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <div class='input-group date' id='latest_departure_timelteqPicker' data-target-input="nearest">
+          <%= f.text_field :latest_departure_time_lteq, :class => "form-control datetimepicker-input", :placeholder => "Latest departure time less than or equal to", :data => {:target => '#latest_departure_timelteqPicker'} %>
+          <div class="input-group-append" data-target='#latest_departure_timelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+          </div>
+          <script type="text/javascript">
+            $(function () {
+                $('#latest_departure_timelteqPicker').datetimepicker({
+                  format: 'LT'
+                });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :earliest_departure_time, "Earliest departure time" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='earliest_departure_timegteqPicker' data-target-input="nearest">
+          <%= f.text_field :earliest_departure_time_gteq, :class => "form-control datetimepicker-input", :placeholder => "Earliest departure time greater than or equal to", :data => {:target => '#earliest_departure_timegteqPicker'} %>
+          <div class="input-group-append" data-target='#earliest_departure_timegteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+          </div>
+          <script type="text/javascript">
+            $(function () {
+                $('#earliest_departure_timegteqPicker').datetimepicker({
+                  format: 'LT'
+                });
+            });
+          </script>
+        </div>
+      </div>
+      <div class='col-md-6'>
+        <div class='input-group date' id='earliest_departure_timelteqPicker' data-target-input="nearest">
+          <%= f.text_field :earliest_departure_time_lteq, :class => "form-control datetimepicker-input", :placeholder => "Earliest departure time less than or equal to", :data => {:target => '#earliest_departure_timelteqPicker'} %>
+          <div class="input-group-append" data-target='#earliest_departure_timelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+          </div>
+          <script type="text/javascript">
+            $(function () {
+                $('#earliest_departure_timelteqPicker').datetimepicker({
+                  format: 'LT'
+                });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :user_email_cont, "User email contains" %>
+    <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/preferred_trips" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#preferred_trips_filters">
+  Show filters
+</a>
