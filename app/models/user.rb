@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :preferred_trips,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

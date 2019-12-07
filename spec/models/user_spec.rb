@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:preferred_trips) }
+
     end
 
     describe "InDirect Associations" do
