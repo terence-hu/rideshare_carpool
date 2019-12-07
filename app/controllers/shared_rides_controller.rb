@@ -74,7 +74,7 @@ class SharedRidesController < ApplicationController
   def update_row
     @shared_ride = SharedRide.find(params.fetch("id_to_modify"))
 
-    @shared_ride.user_id = params.fetch("user_id")
+    
     @shared_ride.preferred_trip_id = params.fetch("preferred_trip_id")
     @shared_ride.carpool_group_id = params.fetch("carpool_group_id")
 
