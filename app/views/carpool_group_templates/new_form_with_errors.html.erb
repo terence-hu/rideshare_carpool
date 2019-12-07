@@ -1,0 +1,32 @@
+<!-- Validation failure messages -->
+<% if @carpool_group.present? %>
+  <% if @carpool_group.errors.any? %>
+    <% @carpool_group.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new carpool group
+</h1>
+
+
+<hr>
+
+<!-- Form carpool_group start -->
+<form action="/create_carpool_group" method="post">
+<!-- Form carpool_group end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create carpool group
+  </button>
+</form>
+
+<hr>
+
+<a href="/carpool_groups">
+  Go back
+</a>

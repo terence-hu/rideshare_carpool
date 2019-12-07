@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Carpool group resource:
+
+  # CREATE
+  get("/carpool_groups/new", { :controller => "carpool_groups", :action => "new_form" })
+  post("/create_carpool_group", { :controller => "carpool_groups", :action => "create_row" })
+
+  # READ
+  get("/carpool_groups", { :controller => "carpool_groups", :action => "index" })
+  get("/carpool_groups/:id_to_display", { :controller => "carpool_groups", :action => "show" })
+
+  # UPDATE
+  get("/carpool_groups/:prefill_with_id/edit", { :controller => "carpool_groups", :action => "edit_form" })
+  post("/update_carpool_group/:id_to_modify", { :controller => "carpool_groups", :action => "update_row" })
+
+  # DELETE
+  get("/delete_carpool_group/:id_to_remove", { :controller => "carpool_groups", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Preferred trip resource:
 
   # CREATE

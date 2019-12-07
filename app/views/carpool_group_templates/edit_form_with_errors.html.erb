@@ -1,0 +1,29 @@
+<!-- Validation failure messages -->
+<% if @carpool_group.errors.any? %>
+  <% @carpool_group.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit carpool group #<%= @carpool_group.id %>
+</h1>
+
+<hr>
+
+<!-- Form carpool_group start -->
+<form action="/update_carpool_group/<%= @carpool_group.id %>" method="post">
+<!-- Form carpool_group end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update carpool group
+  </button>
+</form>
+
+<hr>
+
+<a href="/carpool_groups">
+  Go back
+</a>
